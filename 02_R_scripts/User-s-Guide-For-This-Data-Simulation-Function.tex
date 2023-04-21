@@ -1,0 +1,366 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={User's Guide for A Data Simulation Function For Any Multiple Linear model},
+  pdfauthor={Chenguang Pan},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{User's Guide for A Data Simulation Function For Any Multiple
+Linear model}
+\author{Chenguang Pan}
+\date{2023-04-21}
+
+\begin{document}
+\maketitle
+
+\hypertarget{project-address}{%
+\subsection{Project Address}\label{project-address}}
+
+I synced the progress of this function on the Github. You can check it
+here if interested: \url{https://github.com/cgpan/simdata}
+
+\hypertarget{data-simulation-function}{%
+\subsection{Data simulation function}\label{data-simulation-function}}
+
+This function is to generate data from any given \textbf{multiple linear
+regression model}. Before running this function, please make sure you
+installed the package \texttt{mvtnorm}. Please run the latest version
+\texttt{03\_Data\_simulation\_V1.2.R}.
+
+There are several arguments a user need to know:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{size=500}, the number of generated observations is set to 500
+  by default. You can give any number you want;\\
+\item
+  \texttt{beta\_=}, you must give a coefficient array. It should be in
+  the sequence of
+  c(\(\beta_0\),\(\beta_1\),\(\beta_2\),\(\beta_3\)\ldots), which means
+  the interception should be first numeric item;\\
+\item
+  \texttt{pred\_means=}, since this function mainly generate data from a
+  multivariate norm distribution, you can give the variables means or it
+  will use 0 by default;\\
+\item
+  \texttt{pre\_cov=}, you can give the variance-covariance matrix, or it
+  will use the variance =1, covariance =0 matrix by default;
+\item
+  \texttt{error\_df=1}, the error will be generated from a normal
+  distribution with mean=0 and sd=1, you can set the sd of error based
+  on your theory;
+\end{itemize}
+
+The function will return a \texttt{dataframe} not a matrix, with the
+columns of \texttt{Y}, \texttt{X1}, \texttt{X2},\ldots{}
+
+\hypertarget{the-source-code-of-this-function}{%
+\subsection{The source code of this
+function}\label{the-source-code-of-this-function}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \CommentTok{\# before running the function , please load the package first}
+\ErrorTok{\textgreater{}} \FunctionTok{library}\NormalTok{(mvtnorm)}
+\SpecialCharTok{\textgreater{}} \CommentTok{\# write a function to generate data}
+\ErrorTok{\textgreater{}}\NormalTok{ dat\_gen }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(}\AttributeTok{size=}\DecValTok{500}\NormalTok{, }\CommentTok{\# datasize sets to 500 by default,you can change to any size}
+\SpecialCharTok{+}                     \AttributeTok{beta\_ =} \ConstantTok{NULL}\NormalTok{, }\CommentTok{\# necessary, input the betas in the seuqnce of c(b0, b1, b2...)}
+\SpecialCharTok{+}                     \AttributeTok{pred\_means =} \ConstantTok{NULL}\NormalTok{, }\CommentTok{\# not necessary,input the means of each variables}
+\SpecialCharTok{+}                     \AttributeTok{pred\_cov =} \ConstantTok{NULL}\NormalTok{, }\CommentTok{\# not necessary, input the cov matrix of variables}
+\SpecialCharTok{+}                     \AttributeTok{error\_sd =} \DecValTok{1}\NormalTok{)\{}
+\SpecialCharTok{+}   \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{is.null}\NormalTok{(beta\_) }\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{)\{}
+\SpecialCharTok{+}     \CommentTok{\# if user did not give a coefficients array, return warning.}
+\SpecialCharTok{+}     \FunctionTok{return}\NormalTok{(}\StringTok{"Error: You need to give the coefficients in the sequence of beta0, beta1,..."}\NormalTok{)}
+\SpecialCharTok{+}\NormalTok{   \}}\ControlFlowTok{else}\NormalTok{ \{}
+\SpecialCharTok{+}     \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{is.null}\NormalTok{(pred\_means)}\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{)\{}
+\SpecialCharTok{+}       \CommentTok{\# if user did not give means of each variables,}
+\SpecialCharTok{+}       \CommentTok{\# use 0 as means by default}
+\SpecialCharTok{+}\NormalTok{       predictor\_nums }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(beta\_)}
+\SpecialCharTok{+}       \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{is.null}\NormalTok{(pred\_cov)}\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{)\{}
+\SpecialCharTok{+}         \FunctionTok{print}\NormalTok{(}\StringTok{"Using the variance 1 and covariance 0 by default"}\NormalTok{)}
+\SpecialCharTok{+}\NormalTok{         X }\OtherTok{\textless{}{-}} \FunctionTok{rmvnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{size,}\AttributeTok{sigma=}\FunctionTok{diag}\NormalTok{(predictor\_nums}\DecValTok{{-}1}\NormalTok{))}
+\SpecialCharTok{+}\NormalTok{         Error }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{size, }\AttributeTok{mean =} \DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\NormalTok{error\_sd))}
+\SpecialCharTok{+}\NormalTok{         X\_aug }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FunctionTok{nrow}\NormalTok{(X)), X)}
+\SpecialCharTok{+}\NormalTok{         Y }\OtherTok{\textless{}{-}}\NormalTok{ X\_aug }\SpecialCharTok{\%*\%} \FunctionTok{as.matrix}\NormalTok{(beta\_) }\SpecialCharTok{+}\NormalTok{ Error}
+\SpecialCharTok{+}\NormalTok{         out\_data }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(Y,X)}
+\SpecialCharTok{+}\NormalTok{       \} }\ControlFlowTok{else}\NormalTok{\{ }\DocumentationTok{\#\#\# user gives the predictors covariance matrix}
+\SpecialCharTok{+}\NormalTok{         X }\OtherTok{\textless{}{-}} \FunctionTok{rmvnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{size,}\AttributeTok{sigma=}\NormalTok{pred\_cov)}
+\SpecialCharTok{+}\NormalTok{         Error }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{size, }\AttributeTok{mean =} \DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\NormalTok{error\_sd))}
+\SpecialCharTok{+}\NormalTok{         X\_aug }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FunctionTok{nrow}\NormalTok{(X)), X)}
+\SpecialCharTok{+}\NormalTok{         Y }\OtherTok{\textless{}{-}}\NormalTok{ X\_aug }\SpecialCharTok{\%*\%} \FunctionTok{as.matrix}\NormalTok{(beta\_) }\SpecialCharTok{+}\NormalTok{ Error}
+\SpecialCharTok{+}\NormalTok{         out\_data }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(Y,X)}
+\SpecialCharTok{+}\NormalTok{       \}}
+\SpecialCharTok{+}\NormalTok{     \}}\ControlFlowTok{else}\NormalTok{\{ }\DocumentationTok{\#\# user gives the means of predictors }
+\SpecialCharTok{+}       \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{is.null}\NormalTok{(pred\_cov)}\SpecialCharTok{==}\ConstantTok{TRUE}\NormalTok{)\{}
+\SpecialCharTok{+}         \FunctionTok{print}\NormalTok{(}\StringTok{"Using the variance 1 and covariance 0 by default"}\NormalTok{)}
+\SpecialCharTok{+}\NormalTok{         X }\OtherTok{\textless{}{-}} \FunctionTok{rmvnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{size,}\AttributeTok{mean=}\NormalTok{ pred\_means,}\AttributeTok{sigma=}\FunctionTok{diag}\NormalTok{(predictor\_nums}\DecValTok{{-}1}\NormalTok{))}
+\SpecialCharTok{+}\NormalTok{         Error }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{size, }\AttributeTok{mean =} \DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\NormalTok{error\_sd))}
+\SpecialCharTok{+}\NormalTok{         X\_aug }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FunctionTok{nrow}\NormalTok{(X)), X)}
+\SpecialCharTok{+}\NormalTok{         Y }\OtherTok{\textless{}{-}}\NormalTok{ X\_aug }\SpecialCharTok{\%*\%} \FunctionTok{as.matrix}\NormalTok{(beta\_) }\SpecialCharTok{+}\NormalTok{ Error}
+\SpecialCharTok{+}\NormalTok{         out\_data }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(Y,X)}
+\SpecialCharTok{+}\NormalTok{       \} }\ControlFlowTok{else}\NormalTok{\{ }\DocumentationTok{\#\#\# user gives the predictors covariance matrix}
+\SpecialCharTok{+}\NormalTok{         X }\OtherTok{\textless{}{-}} \FunctionTok{rmvnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{size,}\AttributeTok{mean=}\NormalTok{ pred\_means,}\AttributeTok{sigma=}\NormalTok{pred\_cov)}
+\SpecialCharTok{+}\NormalTok{         Error }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{size, }\AttributeTok{mean =} \DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\NormalTok{error\_sd))}
+\SpecialCharTok{+}\NormalTok{         X\_aug }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FunctionTok{nrow}\NormalTok{(X)), X)}
+\SpecialCharTok{+}\NormalTok{         Y }\OtherTok{\textless{}{-}}\NormalTok{ X\_aug }\SpecialCharTok{\%*\%} \FunctionTok{as.matrix}\NormalTok{(beta\_) }\SpecialCharTok{+}\NormalTok{ Error}
+\SpecialCharTok{+}\NormalTok{         out\_data }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(Y,X)}
+\SpecialCharTok{+}\NormalTok{       \}}
+\SpecialCharTok{+}\NormalTok{     \}}
+\SpecialCharTok{+}     \CommentTok{\# give columns names in "Y","X1","X2",...}
+\SpecialCharTok{+}\NormalTok{     n\_ }\OtherTok{=}\NormalTok{ predictor\_nums }\SpecialCharTok{{-}} \DecValTok{1}
+\SpecialCharTok{+}\NormalTok{     x\_vars }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Y"}\NormalTok{)}
+\SpecialCharTok{+}     \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n\_) \{}
+\SpecialCharTok{+}\NormalTok{       x\_vars[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"X"}\NormalTok{,i)}
+\SpecialCharTok{+}\NormalTok{     \}}
+\SpecialCharTok{+}     \FunctionTok{colnames}\NormalTok{(out\_data) }\OtherTok{\textless{}{-}}\NormalTok{ x\_vars}
+\SpecialCharTok{+}     \FunctionTok{return}\NormalTok{(}\FunctionTok{as.data.frame}\NormalTok{(out\_data))}
+\SpecialCharTok{+}\NormalTok{   \}}
+\SpecialCharTok{+}\NormalTok{ \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{test-of-this-function}{%
+\subsection{Test of this function}\label{test-of-this-function}}
+
+\hypertarget{step-1.-run-a-linear-model-on-real-data}{%
+\subsubsection{Step 1. Run a linear model on real
+data}\label{step-1.-run-a-linear-model-on-real-data}}
+
+Let's use the R-built-in dataset \texttt{mtcars} to test this function.
+First, I run a linear model as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \CommentTok{\# test}
+\ErrorTok{\textgreater{}} \FunctionTok{data}\NormalTok{(mtcars)}
+\SpecialCharTok{\textgreater{}} \CommentTok{\# Fit a linear regression model to predict miles per gallon (mpg) based on horsepower (hp)}
+\ErrorTok{\textgreater{}}\NormalTok{ model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(mpg }\SpecialCharTok{\textasciitilde{}}\NormalTok{ hp}\SpecialCharTok{+}\NormalTok{wt, }\AttributeTok{data =}\NormalTok{ mtcars)}
+\SpecialCharTok{\textgreater{}} 
+\ErrorTok{\textgreater{}} \CommentTok{\# View the summary of the model}
+\ErrorTok{\textgreater{}} \FunctionTok{summary}\NormalTok{(model)}
+
+\NormalTok{Call}\SpecialCharTok{:}
+\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ mpg }\SpecialCharTok{\textasciitilde{}}\NormalTok{ hp }\SpecialCharTok{+}\NormalTok{ wt, }\AttributeTok{data =}\NormalTok{ mtcars)}
+
+\NormalTok{Residuals}\SpecialCharTok{:}
+\NormalTok{   Min     1Q Median     3Q    Max }
+\SpecialCharTok{{-}}\FloatTok{3.941} \SpecialCharTok{{-}}\FloatTok{1.600} \SpecialCharTok{{-}}\FloatTok{0.182}  \FloatTok{1.050}  \FloatTok{5.854} 
+
+\NormalTok{Coefficients}\SpecialCharTok{:}
+\NormalTok{            Estimate Std. Error t value }\FunctionTok{Pr}\NormalTok{(}\SpecialCharTok{\textgreater{}}\ErrorTok{|}\NormalTok{t}\SpecialCharTok{|}\NormalTok{)    }
+\NormalTok{(Intercept) }\FloatTok{37.22727}    \FloatTok{1.59879}  \FloatTok{23.285}  \SpecialCharTok{\textless{}} \FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{hp          }\SpecialCharTok{{-}}\FloatTok{0.03177}    \FloatTok{0.00903}  \SpecialCharTok{{-}}\FloatTok{3.519}  \FloatTok{0.00145} \SpecialCharTok{**} 
+\NormalTok{wt          }\SpecialCharTok{{-}}\FloatTok{3.87783}    \FloatTok{0.63273}  \SpecialCharTok{{-}}\FloatTok{6.129} \FloatTok{1.12e{-}06} \SpecialCharTok{**}\ErrorTok{*}
+\SpecialCharTok{{-}{-}{-}}
+\NormalTok{Signif. codes}\SpecialCharTok{:}  \DecValTok{0} \StringTok{\textquotesingle{}***\textquotesingle{}} \FloatTok{0.001} \StringTok{\textquotesingle{}**\textquotesingle{}} \FloatTok{0.01} \StringTok{\textquotesingle{}*\textquotesingle{}} \FloatTok{0.05} \StringTok{\textquotesingle{}.\textquotesingle{}} \FloatTok{0.1} \StringTok{\textquotesingle{} \textquotesingle{}} \DecValTok{1}
+
+\NormalTok{Residual standard error}\SpecialCharTok{:} \FloatTok{2.593}\NormalTok{ on }\DecValTok{29}\NormalTok{ degrees of freedom}
+\NormalTok{Multiple R}\SpecialCharTok{{-}}\NormalTok{squared}\SpecialCharTok{:}  \FloatTok{0.8268}\NormalTok{,    Adjusted R}\SpecialCharTok{{-}}\NormalTok{squared}\SpecialCharTok{:}  \FloatTok{0.8148} 
+\NormalTok{F}\SpecialCharTok{{-}}\NormalTok{statistic}\SpecialCharTok{:} \FloatTok{69.21}\NormalTok{ on }\DecValTok{2}\NormalTok{ and }\DecValTok{29}\NormalTok{ DF,  p}\SpecialCharTok{{-}}\NormalTok{value}\SpecialCharTok{:} \FloatTok{9.109e{-}12}
+\end{Highlighting}
+\end{Shaded}
+
+The coefficients are \texttt{37.227}, \texttt{-0.032}, and
+\texttt{-3.878}. The standard deviation of error term is 2.5934118.
+Let's plug this value in the function and generate a sample with size of
+500.
+
+\hypertarget{step-2.-data-simulation-using-the-function-above}{%
+\subsubsection{Step 2. Data simulation using the function
+above}\label{step-2.-data-simulation-using-the-function-above}}
+
+Note, in this step, I did not give the variance- covariance matrix. The
+function will use the var=1 and cov=0 by defalt.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \FunctionTok{set.seed}\NormalTok{(}\DecValTok{666}\NormalTok{)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ sim\_data }\OtherTok{\textless{}{-}} \FunctionTok{dat\_gen}\NormalTok{(}\AttributeTok{size=}\DecValTok{500}\NormalTok{,}
+\SpecialCharTok{+}                      \AttributeTok{beta\_=}\FunctionTok{c}\NormalTok{(}\FloatTok{37.23}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.03177295}\NormalTok{,}\FloatTok{3.87783074}\NormalTok{),}
+\SpecialCharTok{+}                      \AttributeTok{error\_sd =} \FunctionTok{summary}\NormalTok{(model)}\SpecialCharTok{$}\NormalTok{sigma)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"Using the variance 1 and covariance 0 by default"}
+\SpecialCharTok{\textgreater{}} \FunctionTok{head}\NormalTok{(sim\_data)}
+\NormalTok{         Y         X1          X2}
+\DecValTok{1} \FloatTok{45.32666}  \FloatTok{0.7533110}  \FloatTok{2.01435467}
+\DecValTok{2} \FloatTok{49.16243} \SpecialCharTok{{-}}\FloatTok{0.3551345}  \FloatTok{2.02816784}
+\DecValTok{3} \FloatTok{37.86073} \SpecialCharTok{{-}}\FloatTok{2.2168745}  \FloatTok{0.75839618}
+\DecValTok{4} \FloatTok{31.20181} \SpecialCharTok{{-}}\FloatTok{1.3061853} \SpecialCharTok{{-}}\FloatTok{0.80251957}
+\DecValTok{5} \FloatTok{37.03116} \SpecialCharTok{{-}}\FloatTok{1.7922408} \SpecialCharTok{{-}}\FloatTok{0.04203245}
+\DecValTok{6} \FloatTok{31.30775}  \FloatTok{2.1500426} \SpecialCharTok{{-}}\FloatTok{1.77023084}
+\end{Highlighting}
+\end{Shaded}
+
+The data looks good. Now, run linear model on this simulated dataset.
+
+\hypertarget{step-3.-run-a-linear-model-on-the-simulated-data.}{%
+\subsubsection{Step 3. Run a linear model on the simulated
+data.}\label{step-3.-run-a-linear-model-on-the-simulated-data.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ sim\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ X1 }\SpecialCharTok{+}\NormalTok{X2, }\AttributeTok{data =}\NormalTok{ sim\_data)}
+\SpecialCharTok{\textgreater{}} \FunctionTok{summary}\NormalTok{(sim\_model)}
+
+\NormalTok{Call}\SpecialCharTok{:}
+\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ Y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ X1 }\SpecialCharTok{+}\NormalTok{ X2, }\AttributeTok{data =}\NormalTok{ sim\_data)}
+
+\NormalTok{Residuals}\SpecialCharTok{:}
+\NormalTok{    Min      1Q  Median      3Q     Max }
+\SpecialCharTok{{-}}\FloatTok{7.6269} \SpecialCharTok{{-}}\FloatTok{1.8463}  \FloatTok{0.0478}  \FloatTok{1.6844}  \FloatTok{7.5409} 
+
+\NormalTok{Coefficients}\SpecialCharTok{:}
+\NormalTok{            Estimate Std. Error t value }\FunctionTok{Pr}\NormalTok{(}\SpecialCharTok{\textgreater{}}\ErrorTok{|}\NormalTok{t}\SpecialCharTok{|}\NormalTok{)    }
+\NormalTok{(Intercept) }\FloatTok{37.19203}    \FloatTok{0.11641} \FloatTok{319.500}   \SpecialCharTok{\textless{}}\FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{X1          }\SpecialCharTok{{-}}\FloatTok{0.03011}    \FloatTok{0.11234}  \SpecialCharTok{{-}}\FloatTok{0.268}    \FloatTok{0.789}    
+\NormalTok{X2           }\FloatTok{3.77736}    \FloatTok{0.12083}  \FloatTok{31.263}   \SpecialCharTok{\textless{}}\FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\SpecialCharTok{{-}{-}{-}}
+\NormalTok{Signif. codes}\SpecialCharTok{:}  \DecValTok{0} \StringTok{\textquotesingle{}***\textquotesingle{}} \FloatTok{0.001} \StringTok{\textquotesingle{}**\textquotesingle{}} \FloatTok{0.01} \StringTok{\textquotesingle{}*\textquotesingle{}} \FloatTok{0.05} \StringTok{\textquotesingle{}.\textquotesingle{}} \FloatTok{0.1} \StringTok{\textquotesingle{} \textquotesingle{}} \DecValTok{1}
+
+\NormalTok{Residual standard error}\SpecialCharTok{:} \FloatTok{2.601}\NormalTok{ on }\DecValTok{497}\NormalTok{ degrees of freedom}
+\NormalTok{Multiple R}\SpecialCharTok{{-}}\NormalTok{squared}\SpecialCharTok{:}  \FloatTok{0.664}\NormalTok{, Adjusted R}\SpecialCharTok{{-}}\NormalTok{squared}\SpecialCharTok{:}  \FloatTok{0.6627} 
+\NormalTok{F}\SpecialCharTok{{-}}\NormalTok{statistic}\SpecialCharTok{:} \FloatTok{491.1}\NormalTok{ on }\DecValTok{2}\NormalTok{ and }\DecValTok{497}\NormalTok{ DF,  p}\SpecialCharTok{{-}}\NormalTok{value}\SpecialCharTok{:} \ErrorTok{\textless{}} \FloatTok{2.2e{-}16}
+\end{Highlighting}
+\end{Shaded}
+
+Note, the first predictor become non-significant. We might want to input
+the covariance matrix of the variables to make data simulation more
+accurate. Let's try it again.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}} \CommentTok{\# get the var{-}cov matrix}
+\ErrorTok{\textgreater{}} \FunctionTok{data}\NormalTok{(mtcars)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ cov\_m }\OtherTok{\textless{}{-}} \FunctionTok{cov}\NormalTok{(mtcars[,}\FunctionTok{c}\NormalTok{(}\StringTok{"hp"}\NormalTok{,}\StringTok{"wt"}\NormalTok{)])}
+\SpecialCharTok{\textgreater{}} \CommentTok{\# input the cov{-}matrix into the function and re{-}run the steps above}
+\ErrorTok{\textgreater{}} \FunctionTok{set.seed}\NormalTok{(}\DecValTok{666}\NormalTok{)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ sim\_data }\OtherTok{\textless{}{-}} \FunctionTok{dat\_gen}\NormalTok{(}\AttributeTok{size=}\DecValTok{500}\NormalTok{,}
+\SpecialCharTok{+}                     \AttributeTok{beta\_=}\FunctionTok{c}\NormalTok{(}\FloatTok{37.23}\NormalTok{,}\SpecialCharTok{{-}}\FloatTok{0.03177295}\NormalTok{,}\FloatTok{3.87783074}\NormalTok{),}
+\SpecialCharTok{+}                     \AttributeTok{pred\_cov =}\NormalTok{ cov\_m,}
+\SpecialCharTok{+}                     \AttributeTok{error\_sd =} \FunctionTok{summary}\NormalTok{(model)}\SpecialCharTok{$}\NormalTok{sigma)}
+\SpecialCharTok{\textgreater{}}\NormalTok{ sim\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ X1 }\SpecialCharTok{+}\NormalTok{X2, }\AttributeTok{data =}\NormalTok{ sim\_data)}
+\SpecialCharTok{\textgreater{}} \FunctionTok{summary}\NormalTok{(sim\_model)}
+
+\NormalTok{Call}\SpecialCharTok{:}
+\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ Y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ X1 }\SpecialCharTok{+}\NormalTok{ X2, }\AttributeTok{data =}\NormalTok{ sim\_data)}
+
+\NormalTok{Residuals}\SpecialCharTok{:}
+\NormalTok{   Min     1Q Median     3Q    Max }
+\SpecialCharTok{{-}}\FloatTok{8.147} \SpecialCharTok{{-}}\FloatTok{1.821}  \FloatTok{0.048}  \FloatTok{1.695}  \FloatTok{7.388} 
+
+\NormalTok{Coefficients}\SpecialCharTok{:}
+\NormalTok{             Estimate Std. Error t value }\FunctionTok{Pr}\NormalTok{(}\SpecialCharTok{\textgreater{}}\ErrorTok{|}\NormalTok{t}\SpecialCharTok{|}\NormalTok{)    }
+\NormalTok{(Intercept) }\FloatTok{37.211830}   \FloatTok{0.113191}  \FloatTok{328.75}   \SpecialCharTok{\textless{}}\FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{X1          }\SpecialCharTok{{-}}\FloatTok{0.031369}   \FloatTok{0.002195}  \SpecialCharTok{{-}}\FloatTok{14.29}   \SpecialCharTok{\textless{}}\FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{X2           }\FloatTok{3.834801}   \FloatTok{0.149183}   \FloatTok{25.70}   \SpecialCharTok{\textless{}}\FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\SpecialCharTok{{-}{-}{-}}
+\NormalTok{Signif. codes}\SpecialCharTok{:}  \DecValTok{0} \StringTok{\textquotesingle{}***\textquotesingle{}} \FloatTok{0.001} \StringTok{\textquotesingle{}**\textquotesingle{}} \FloatTok{0.01} \StringTok{\textquotesingle{}*\textquotesingle{}} \FloatTok{0.05} \StringTok{\textquotesingle{}.\textquotesingle{}} \FloatTok{0.1} \StringTok{\textquotesingle{} \textquotesingle{}} \DecValTok{1}
+
+\NormalTok{Residual standard error}\SpecialCharTok{:} \FloatTok{2.529}\NormalTok{ on }\DecValTok{497}\NormalTok{ degrees of freedom}
+\NormalTok{Multiple R}\SpecialCharTok{{-}}\NormalTok{squared}\SpecialCharTok{:}  \FloatTok{0.5712}\NormalTok{,    Adjusted R}\SpecialCharTok{{-}}\NormalTok{squared}\SpecialCharTok{:}  \FloatTok{0.5695} 
+\NormalTok{F}\SpecialCharTok{{-}}\NormalTok{statistic}\SpecialCharTok{:} \FloatTok{331.1}\NormalTok{ on }\DecValTok{2}\NormalTok{ and }\DecValTok{497}\NormalTok{ DF,  p}\SpecialCharTok{{-}}\NormalTok{value}\SpecialCharTok{:} \ErrorTok{\textless{}} \FloatTok{2.2e{-}16}
+\end{Highlighting}
+\end{Shaded}
+
+Now comparing the result from the model on the real data. these
+simulated data looks good!
+
+\end{document}
