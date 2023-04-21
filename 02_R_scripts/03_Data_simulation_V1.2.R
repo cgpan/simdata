@@ -1,44 +1,29 @@
-# Author: Chenguang Pan
-# Date:   April,20th, 2023
-# Aim:    This first version of this file is to simmulate data for
-#         any linear regression model
-
-# import the dataset
-df <- read.csv("~/Desktop/PhD_Learning/DeCarlo's Meeting/simdata/01_data/02_processed_data/hsls_sub.csv")
-dim(df)
-names(df)
-
-# this dataset is too huge I randomly choose 500 observation for data simulation test
-rand_obs <- sample(1:nrow(df),500)
-
-# randomly subset the df into 500 observations
-df_sub <- df[rand_obs,]
-dim(df_sub)
-names(df_sub)
-# run a regression model to get the coefficient
-model_original <- lm(X3TGPAMAT ~ X1SES + X1MTHEFF + X1TXMTSCOR, data = df_sub)
-summary(model_original)
-
-
+# V1.2 allows user run this function without a given covariance matrix
+# The covariance matrix will be set to 1 at the diagonal, 0 at the other entries by default
 
 # before running the function , please load the package first
 library(mvtnorm)
 # write a function to generate data
-dat_gen <- function(size=500, # datasize sets to 500 by default
-                    beta_ = NULL, # input the betas
-                    pred_means = NULL, # input the means of variables
-                    pred_cov = NULL, # input the covariances of variables
+dat_gen <- function(size=500, # datasize sets to 500 by default,you can change to any size
+                    beta_ = NULL, # necessary, input the betas in the seuqnce of c(b0, b1, b2...)
+                    pred_means = NULL, # not necessary,input the means of each variables
+                    pred_cov = NULL, # not necessary, input the cov matrix of variables
                     error_sd = 1){
   if (is.null(beta_) == TRUE){
     # if user did not give a coefficients array, return warning.
-    return("Error: You need to give the coefficients.")
+    return("Error: You need to give the coefficients in the sequence of beta0, beta1,...")
   }else {
     if (is.null(pred_means)== TRUE){
       # if user did not give means of each variables,
       # use 0 as means by default
       predictor_nums <- length(beta_)
       if (is.null(pred_cov)== TRUE){
-        return("Error: You have to give the covariance matrix of predictors")
+        print("Using the variance 1 and covariance 0 by default")
+        X <- rmvnorm(n=size,sigma=diag(predictor_nums-1))
+        Error <- as.matrix(rnorm(n=size, mean = 0, sd=error_sd))
+        X_aug <- cbind(rep(1,nrow(X)), X)
+        Y <- X_aug %*% as.matrix(beta_) + Error
+        out_data <- cbind(Y,X)
       } else{ ### user gives the predictors covariance matrix
         X <- rmvnorm(n=size,sigma=pred_cov)
         Error <- as.matrix(rnorm(n=size, mean = 0, sd=error_sd))
@@ -48,7 +33,12 @@ dat_gen <- function(size=500, # datasize sets to 500 by default
       }
     }else{ ## user gives the means of predictors 
       if (is.null(pred_cov)==TRUE){
-        return("Error: You have to give the covariance matrix of predictors.")
+        print("Using the variance 1 and covariance 0 by default")
+        X <- rmvnorm(n=size,mean= pred_means,sigma=diag(predictor_nums-1))
+        Error <- as.matrix(rnorm(n=size, mean = 0, sd=error_sd))
+        X_aug <- cbind(rep(1,nrow(X)), X)
+        Y <- X_aug %*% as.matrix(beta_) + Error
+        out_data <- cbind(Y,X)
       } else{ ### user gives the predictors covariance matrix
         X <- rmvnorm(n=size,mean= pred_means,sigma=pred_cov)
         Error <- as.matrix(rnorm(n=size, mean = 0, sd=error_sd))
@@ -68,20 +58,11 @@ dat_gen <- function(size=500, # datasize sets to 500 by default
   }
 }
 
-
-# type the coefficient
-betas <- c(0.01, 0.178, 0.012, 0.043)
-predictors_cov <- cov(df_sub[,1:3])
-class(predictors_cov)
-error_sd <- summary(model_original)$sigma
-
-dataset_00 <- dat_gen(beta_=betas,pred_cov =predictors_cov,error_sd = error_sd)
-head(dataset_00)
-model_00 <-lm(Y ~ X1 + X2  + X3, data = dataset_00)
-summary(model_00)
-
-cov_matrix <- matrix(1,3,3)
-X <- rmvnorm(n=10, sigma=cov_matrix)
+#################################################
+##
+## Test area
+##
+################################################
 
 # test
 data(mtcars)
@@ -89,14 +70,13 @@ data(mtcars)
 model <- lm(mpg ~ hp+wt, data = mtcars)
 
 # View the summary of the model
-summary(model)
+summary(model)$coefficient
+  
 cvo <- var(mtcars[,c("hp","wt")])
 
-cars_data <- dat_gen(beta_=c(30,-0.032,-3.88),
+cars_data <- dat_gen(size=100,
+                     beta_=c(37.23,-0.03177295,3.87783074),
                      error_sd = summary(model)$sigma)
-
-cars_data 
 
 cars <- lm(Y~X1+X2, data = cars_data )
 summary(cars)
-X <- rmvnorm(n=500,sigma=cvo)
