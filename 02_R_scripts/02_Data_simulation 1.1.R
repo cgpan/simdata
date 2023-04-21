@@ -31,27 +31,14 @@ dat_gen <- function(size=500, # datasize sets to 500 by default
                     error_sd = 1){
   if (is.null(beta_) == TRUE){
     # if user did not give a coefficients array, return warning.
-    print("WARNING: You need to give the coefficients.")
+    return("Error: You need to give the coefficients.")
   }else {
     if (is.null(pred_means)== TRUE){
       # if user did not give means of each variables,
       # use 0 as means by default
       predictor_nums <- length(beta_)
       if (is.null(pred_cov)== TRUE){
-        ### if user did not give covariances matrix of each variables
-        # use the 1 covariance matrix by default.
-        pred_cov <- matrix(1, nrow = predictor_nums-1,
-                           ncol = predictor_nums-1)
-        # generate the variable-matrix using multivariate normal distribution
-        X <- rmvnorm(n=size,sigma=pred_cov)
-        # generate the error from N(0, error_var)
-        Error <- as.matrix(rnorm(n=size, mean = 0, sd=error_sd))
-        # make the X to be augmented matrix, that is add a column of 1 at the 
-        # first column.
-        X_aug <- cbind(rep(1,nrow(X)), X)
-        # using matrix algoritm to get the Y
-        Y <- X_aug %*% as.matrix(beta_) + Error
-        out_data <- cbind(Y,X)
+        return("Error: You have to give the covariance matrix of predictors")
       } else{ ### user gives the predictors covariance matrix
         X <- rmvnorm(n=size,sigma=pred_cov)
         Error <- as.matrix(rnorm(n=size, mean = 0, sd=error_sd))
@@ -61,20 +48,7 @@ dat_gen <- function(size=500, # datasize sets to 500 by default
       }
     }else{ ## user gives the means of predictors 
       if (is.null(pred_cov)==TRUE){
-        ### if user did not give covariances matrix of each variables
-        # use the 1 covariance matrix by default.
-        pred_cov <- matrix(1, nrow = predictor_nums-1,
-                           ncol = predictor_nums-1)
-        # generate the variable-matrix using multivariate normal distribution
-        X <- rmvnorm(n=size,mean= pred_means, sigma=pred_cov)
-        # generate the error from N(0, error_var)
-        Error <- as.matrix(rnorm(n=size, mean = 0, sd=error_sd))
-        # make the X to be augmented matrix, that is add a column of 1 at the 
-        # first column.
-        X_aug <- cbind(rep(1,nrow(X)), X)
-        # using matrix algoritm to get the Y
-        Y <- X_aug %*% as.matrix(beta_) + Error
-        out_data <- cbind(Y,X)
+        print("Error: You have to give the covariance matrix of predictors.")
       } else{ ### user gives the predictors covariance matrix
         X <- rmvnorm(n=size,mean= pred_means,sigma=pred_cov)
         Error <- as.matrix(rnorm(n=size, mean = 0, sd=error_sd))
@@ -101,7 +75,7 @@ predictors_cov <- cov(df_sub[,1:3])
 class(predictors_cov)
 error_sd <- summary(model_original)$sigma
 
-dataset_00 <- dat_gen(beta_=betas,error_sd = error_sd)
+dataset_00 <- dat_gen(beta_=betas,pred_cov =predictors_cov,error_sd = error_sd)
 head(dataset_00)
 model_00 <-lm(Y ~ X1 + X2  + X3, data = dataset_00)
 summary(model_00)
@@ -109,3 +83,20 @@ summary(model_00)
 cov_matrix <- matrix(1,3,3)
 X <- rmvnorm(n=10, sigma=cov_matrix)
 
+# test
+data(mtcars)
+# Fit a linear regression model to predict miles per gallon (mpg) based on horsepower (hp)
+model <- lm(mpg ~ hp+wt, data = mtcars)
+
+# View the summary of the model
+summary(model)
+cvo <- var(mtcars[,c("hp","wt")])
+
+cars_data <- dat_gen(beta_=c(30,-0.032,-3.88),
+                     error_sd = summary(model)$sigma)
+
+cars_data 
+
+cars <- lm(Y~X1+X2, data = cars_data )
+summary(cars)
+X <- rmvnorm(n=500,sigma=cvo)
