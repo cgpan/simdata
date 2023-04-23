@@ -4,6 +4,9 @@
  Please read the user's guide first.  
  Please use the latest version V1.2.
  
+ A Python version is going to be writen in following weeks, which can make the syntax more elegant and readable.  
+ 
+ 
  Welcome to give any feedbacks.
  
  Author: Chenguang Pan   
